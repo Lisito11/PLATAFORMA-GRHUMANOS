@@ -1,0 +1,53 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="page-header">
+        <h1>Módulo Procesos</h1>
+        <p class="lead">En este lugar es donde ocurre la magia, todos las operaciones estan aquí.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h3><strong>Calcular Nómina</strong> de los empleados</h3>
+            <img  class="img-responsive" src="~/Images/nomina.jpg" alt="nomina empleados">
+            <h4>La nómina​ es la suma de los registros financieros de los sueldos de los empleados, incluyendo los salarios, las bonificaciones y las deducciones.</h4>
+            <p><a class="btn btn-lg btn-primary" href="@Url.Action("Validar", "Nomina")" role="button"><i class="glyphicon glyphicon-signal"></i> Calcular Nómina</a></p>
+        </div>
+
+        <div class="col-md-6">
+            <h3><strong>Inactivar Empleado</strong></h3>
+            <img style="height:326px;" class="img-responsive" src="~/Images/despedir.jpg" alt="saldia empleado">
+            <h4>El proceso de despido siempre será incómodo para ambas partes, pero empleando las técnicas correctas se puede lograr que la experiencia sea menos traumática.</h4>
+            <p><a class="btn btn-lg btn-primary" href="@Url.Action("ListaEmpleadosInactivar", "SalidaEmpleado")" role="button"><i class="glyphicon glyphicon-remove"></i> Inactivar Empleado</a></p>
+        </div>
+
+    </div>
+    
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Vacaciones</h2>
+            <img src="~/Images/Playa.jpg" class="img-responsive img-thumbnail" alt="Vacaciones" />
+            <p>Las vacaciones laborales son el derecho que tiene todo trabajador dependiente que ha prestado sus servicios durante un año, de disfrutar de un tiempo de descanso.</p>
+            <p><a class="btn btn-primary" href="@Url.Action("ListaEmpleadosVacaciones", "Vacaciones")" role="button"><i class="glyphicon glyphicon-plus"></i> Registrar Vacaciones</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Permisos</h2>
+            <img src="~/Images/permisos.jpg" class="img-responsive img-thumbnail" alt="Permisos empleado" />
+            <p>Un permiso laboral es un acto mediante le concedemos al empleado un permiso para ausentarse justificadamente del trabajo durante la jornada laboral</p>
+            <p><a class="btn btn-primary" href="@Url.Action("ListaEmpleadosPermisos", "Permiso")" role="button"><i class="glyphicon glyphicon-plus"></i> Registrar Permisos</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Licencias</h2>
+            <img src="~/Images/licencias.jpg" class="img-responsive img-thumbnail" alt="Licencias empleados" />
+            <p>La licencia médica es un derecho de reposo parcial o total que tienen todos los trabajadores, por un período de tiempo determinado.</p>
+            <p><a class="btn btn-primary" href="@Url.Action("ListaEmpleadosLicencias", "Licencia")" role="button"><i class="glyphicon glyphicon-plus"></i> Registrar Licencias</a></p>
+        </div>
+    </div>
+</div>

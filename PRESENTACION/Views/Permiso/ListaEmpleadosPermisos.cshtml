@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ENTIDAD.EmpleadoLS>
+<div>
+    <h1>Registrar Permisos</h1>
+</div>
+<table class="table table-striped table-hover table-bordered" id="tablaPermisoEmpleado" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Nombre completo
+            </th>
+            <th>
+                Departamento
+            </th>
+            <th>
+                Cargo
+            </th>
+            <th>
+                Tomar Permiso
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @item.FullName
+                </td>
+                <td>
+                    @item.NombreDepartamento
+                </td>
+                <td>
+                    @item.NombreCargo
+                </td>
+                <td>
+                    @Html.ActionLink("Permiso", "Crear", new { id = item.idEmpleado }, new { @class = "btn btn-info btn-xs" }) 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a href="@Url.Action("Index", "Proceso")" class="btn btn-info">Regresar</a>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#tablaPermisoEmpleado thead tr').clone(true).appendTo('#tablaPermisoEmpleado thead');
+            $('#tablaPermisoEmpleado thead tr:eq(1) th').each(function (i) {
+                var title = $(this).text().trim().toLowerCase();
+                console.log(`Es es el titulo "${title}"`);
+                $(this).html('<input type="text" class="form-control" placeholder="Buscar ' + title + '" />');
+
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+
+            var table = $('#tablaPermisoEmpleado').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                responsive: true
+            });
+        });
+    </script>
+}

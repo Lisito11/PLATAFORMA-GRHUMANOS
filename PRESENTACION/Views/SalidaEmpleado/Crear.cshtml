@@ -1,0 +1,49 @@
+﻿@model ENTIDAD.SalidaEmpleado
+
+<h2>Salida de empleados</h2>
+<div class="row">
+
+    <div class="col-md-4">
+        <div>
+            <img src="~/Images/despedir.jpg" class="img-responsive img-thumbnail" alt="Salida Empleados" />
+        </div>
+    </div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+        <input id="idEmpleado" name="idEmpleado" type="hidden" value="@ViewBag.idEmpleado">
+        <div class="col-md-4">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                <label class="control-label">Tipo de salida</label>
+                <div>
+                    @Html.DropDownList("TipoSalida", (List<SelectListItem>)ViewBag.ListadoSalidas, "Tipo de Salida", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.TipoSalida, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Motivo de la salida</label>
+                <div>
+                    <textarea id="Motivo" name="Motivo" rows="4" cols="50"></textarea>
+                    @Html.ValidationMessageFor(model => model.Motivo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Fecha de salida</label>
+                <div>
+                    <input type="date" class="form-control" id="FechaSalida" name="FechaSalida" value="@ViewBag.fechaActual" />
+                    @Html.ValidationMessageFor(model => model.FechaSalida, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    <a href="@Url.Action("ListaEmpleadosInactivar", "SalidaEmpleado")" class="btn btn-info">Regresar</a>
+                    <input type="submit" value="Aplicar Salida" class="btn btn-danger" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

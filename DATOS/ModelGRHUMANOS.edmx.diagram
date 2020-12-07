@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b2e39ca8078d42488e91964431ef4561" Name="Diagram1">
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.Cargo" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.Departamento" Width="1.5" PointX="0.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.Empleado" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.Licencia" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.Nomina" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.Permiso" Width="1.5" PointX="5.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.SalidaEmpleado" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BD_GRHUMANOSModel.Vacacione" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="BD_GRHUMANOSModel.fk_empleado_cargo" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_GRHUMANOSModel.fk_empleado_departamento" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_GRHUMANOSModel.fk_licencias_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_GRHUMANOSModel.fk_permisos_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_GRHUMANOSModel.fk_salidaempleado_empleado" ManuallyRouted="false" />
+        <AssociationConnector Association="BD_GRHUMANOSModel.fk_vacaciones_empleado" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,59 @@
+﻿@model ENTIDAD.Vacacione
+<h2>Vacaciones Empleado</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <img src="~/Images/Playa.jpg" class="img-responsive img-thumbnail" alt="Una playas" />
+        </div>
+    </div>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-4">
+            <input id="idEmpleado" name="idEmpleado" type="hidden" value="@ViewBag.idEmpleado">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label">Desde</label>
+                <div>
+                    <input type="date" class="form-control" id="Desde" name="Desde" />
+                    @Html.ValidationMessageFor(model => model.Desde, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Hasta</label>
+                <div>
+                    <input type="date" class="form-control" id="Hasta" name="Hasta" />
+                    @Html.ValidationMessageFor(model => model.Hasta, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Año</label>
+                <div>
+                    <input type="number" class="form-control" id="Age" name="Age" />
+                    @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">Comentarios</label>
+                <div>
+                    <textarea class="form-control" id="Comentarios" name="Comentarios"> </textarea>
+                    @Html.ValidationMessageFor(model => model.Comentarios, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div>
+                    @Html.ActionLink("Regresar", "../Proceso/Index", "", new { @class = "btn btn-info" })
+                    <input type="submit" value="Crear" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+

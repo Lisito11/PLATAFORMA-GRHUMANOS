@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ENTIDAD.LicenciaLS>
+
+<div>
+    <h1>Licencias</h1>
+</div>
+<table class="table table-striped table-hover table-bordered" id="tablaLicencia" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Empleado
+            </th>
+            <th>
+                Desde
+            </th>
+            <th>
+                Hasta
+            </th>
+            <th>
+                Motivo
+            </th>
+            <th>
+                Comentarios
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Apellidos @item.Nombres
+            </td>
+            <td>
+                @item.Desde.ToString("ddd, MMMM, yyyy ")
+            </td>
+            <td>
+                @item.Hasta.ToString("ddd, MMMM, yyyy ")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Motivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Comentarios)
+            </td>
+        </tr>
+        }
+    </tbody>
+
+</table>
+<div>
+    <a href="@Url.Action("Index", "Proceso")" class="btn btn-primary">Continuar</a>
+    <a href="@Url.Action("ListaEmpleadosLicencias", "Licencia")" class="btn btn-info"><i class="glyphicon glyphicon-plus"></i> Crear otro</a>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#tablaLicencia thead tr').clone(true).appendTo('#tablaLicencia thead');
+            $('#tablaLicencia thead tr:eq(1) th').each(function (i) {
+                var title = $(this).text().trim().toLowerCase();
+                console.log(`Es es el titulo "${title}"`);
+                $(this).html('<input type="text" class="form-control" placeholder="Buscar ' + title + '" />');
+
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+            var table = $('#tablaLicencia').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                responsive: true
+            });
+        });
+    </script>
+}

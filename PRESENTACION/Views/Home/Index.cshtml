@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<h1>GRHumanos</h1>
+<div class="row">
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("Index", "Informe")">
+                <img src="~/Images/informes.jpg" alt="Informes">
+            </a>
+            <div class="caption">
+                <h3>Informes</h3>
+                <p>Este es el módulo de informes, donde se visualiza todo.</p>
+                <p><a href="@Url.Action("Index", "Informe")" class="btn btn-primary" role="button">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("Index", "Proceso")">
+                <img src="~/Images/procesos.jpg" alt="Procesos">
+            </a>
+            <div class="caption">
+                <h3>Procesos</h3>
+                <p>Este es el módulo de procesos, donde ocurre la magia.</p>
+                <p><a href="@Url.Action("Index", "Proceso")" class="btn btn-primary" role="button">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("Index", "Mantenimiento")">
+                <img src="~/Images/mantenimiento.jpg" alt="Mantenimientos">
+            </a>
+            <div class="caption">
+                <h3>Mantenimientos</h3>
+                <p>Este es el módulo de mantenimiento, donde se hace el trabajo duro.</p>
+                <p><a href="@Url.Action("Index", "Mantenimiento")" class="btn btn-primary" role="button">Entrar</a></p>
+            </div>
+        </div>
+    </div>
+</div>

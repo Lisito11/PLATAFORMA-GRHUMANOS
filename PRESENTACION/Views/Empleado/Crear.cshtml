@@ -1,0 +1,92 @@
+﻿@model ENTIDAD.Empleado
+<h2>Crear Empleado</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <img src="~/Images/empleado.jpg" class="img-responsive img-thumbnail" alt="Empleados" />
+        </div>
+
+    </div>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="col-md-4">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                <label class="control-label">Código</label>
+                <div>
+                    <input type="text" class="form-control" id="CodigoEmpleado" name="CodigoEmpleado" placeholder="Ingrese el codigo del empleado" />
+                    @Html.ValidationMessageFor(model => model.CodigoEmpleado, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nombres, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    <input type="text" class="form-control" id="Nombres" name="Nombres" placeholder="Ingrese los nombres del empleado" />
+                    @Html.ValidationMessageFor(model => model.Nombres, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    <input type="text" class="form-control" id="Apellidos" name="Apellidos" placeholder="Ingrese los apellidos del empleado" />
+                    @Html.ValidationMessageFor(model => model.Apellidos, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    <input type="text" class="form-control" id="Celular" name="Celular" placeholder="Ingrese el celular del empleado" />
+                    @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">Cargo</label>
+                <div>
+                    @Html.DropDownList("idCargo", (List<SelectListItem>)ViewBag.ListadoCargos, "Seleccione...", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.idCargo, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Departamento</label>
+                <div>
+                    @Html.DropDownList("idDepartamento", (List<SelectListItem>)ViewBag.ListadoDepartamentos, "Seleccione...", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.idDepartamento, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label">Fecha de ingreso</label>
+                <div>
+                    <input type="date" class="form-control" id="FechaIngreso" value="@ViewBag.fechaActual" name="FechaIngreso" />
+                    @Html.ValidationMessageFor(model => model.FechaIngreso, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Salario, htmlAttributes: new { @class = "control-label" })
+                <div>
+                    <input type="number" min="0" class="form-control" id="Salario" name="Salario" placeholder="Ingrese salario del empleado" />
+                    @Html.ValidationMessageFor(model => model.Salario, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <a href="@Url.Action("Index", "Mantenimiento")" class="btn btn-info">Regresar</a>
+                <input type="submit" value="Crear" class="btn btn-primary" />
+            </div>
+        </div>
+    }
+
+
+</div>

@@ -1,0 +1,31 @@
+﻿@model ENTIDAD.Nomina
+
+<h2>Revisión Nómina</h2>
+<div class="row">
+    <div class="col-md-4">
+        <img src="~/Images/nomina.jpg" class="img-responsive img-thumbnail" alt="Departamentos" />
+    </div>
+
+
+
+    @using (Html.BeginForm("Crear", "Nomina", FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+        <div class="col-md-4">
+            <div class="form-group">
+                <label class="control-label">Monto total de la nómina</label>
+                <div>
+                    <input type="text" class="form-control" id="MontoTotal" name="MontoTotal" value="@ViewBag.SalarioTotal" />
+                    @Html.ValidationMessageFor(model => model.MontoTotal, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+                    <input type="submit" value="Crear" class="btn btn-primary" />
+                    @Html.ActionLink("Regresar", "Validar", "", new { @class = "btn btn-info" })
+                </div>
+            </div>
+            <div>
+            </div>
+        </div>
+    }
+</div>

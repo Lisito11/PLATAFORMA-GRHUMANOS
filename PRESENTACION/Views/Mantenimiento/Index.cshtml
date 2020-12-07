@@ -1,0 +1,90 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img class="first-slide img-responsive" src="~/Images/mantenimiento.jpg" alt="Mantenimientos">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Mantenimientos</h1>
+                    <h4>En el modulo de mantenimienos se registran los empleados nuevos, se añaden los nuevos departamentos departamentos y se crean los cargos.</h4>
+                    <p><a class="btn btn-lg btn-primary" href="#things" role="button">Comenzar</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img style="width: 1140px; height: 743.2px;" class="second-slide img-responsive" src="~/Images/empleado.jpg" alt="Empleados">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Empleados</h1>
+                    <h4>Los empleados son una parte esencial en nuestra empresa, por eso solo contratamos a los mejores.</h4>
+                    <p><a class="btn btn-lg btn-primary" href="@Url.Action("Crear", "Empleado")" role="button"><i class="glyphicon glyphicon-plus"></i> Registrar Empleados</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img style=" width:1140px; height:743.2px;" class="third-slide img-responsive" src="~/Images/departamento.jpg" alt="Departamentos">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Departamentos</h1>
+                    <h4>Cada departamento dentro de nuestra empresa es unico e irremplazable. Por eso nos tomamos con mucha seriedad la creación de estos.</h4>
+                    <p><a class="btn btn-lg btn-primary" href="@Url.Action("Crear", "Departamento")" role="button"><i class="glyphicon glyphicon-plus"></i> Añadir Departamendo</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <img style="width: 1140px; height: 743.2px;" class="third-slide img-responsive" src="~/Images/cargo.jpg" alt="cargo">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>Cargos</h1>
+                    <h4>Llevar un control de los cargos es sumamente importante, ya que nos ayuda a saber a quien contactar en caso de que ocurra una emergencia.</h4>
+                    <p><a class="btn btn-lg btn-primary" href="@Url.Action("Crear", "Cargo")" role="button"><i class="glyphicon glyphicon-plus"></i> Crear Cargo</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+<div class="container" id="things">
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Empleados</h2>
+            <img src="~/Images/empleado.jpg" class="img-responsive img-thumbnail" alt="Empleados" />
+            <p>Los empleados son una parte esencial en nuestra empresa, por eso solo contratamos a los mejores.</p>
+            <div>
+                <a class="btn btn-primary" href="@Url.Action("Crear", "Empleado")" role="button"><i class="glyphicon glyphicon-plus"></i> Registrar Empleado</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <h2>Departamentos</h2>
+            <img style="height:243.3px;" src="~/Images/departamento.jpg" class="img-responsive img-thumbnail" alt="Departamentos" />
+            <p>Cada departamento dentro de nuestra empresa es unico e irremplazable. Por eso nos tomamos con mucha seriedad la creación de estos.</p>
+            <p><a class="btn btn-primary" href="@Url.Action("Crear", "Departamento")" role="button"><i class="glyphicon glyphicon-plus"></i> Añadir Departamendo</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Cargos</h2>
+            <img src="~/Images/cargo.jpg" class="img-responsive img-thumbnail" alt="Cargos" />
+            <p>Llevar un control de los cargos es sumamente importante, ya que nos ayuda a saber a quien contactar en caso de que ocurra una emergencia.</p>
+            <p><a class="btn btn-primary" href="@Url.Action("Crear", "Cargo")" role="button"><i class="glyphicon glyphicon-plus"></i> Crear Cargo</a></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@model List<ENTIDAD.EmpleadoLS>
+@using System.Globalization;
+<div>
+    <h1>Empleados Inactivos</h1>
+</div>
+<table class="table table-striped table-hover table-bordered" id="tablaEmpleadosA" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Nombre Completo
+            </th>
+            <th>
+                Departamento
+            </th>
+            <th>
+                Cargo
+            </th>
+            <th>
+                Mes de salida
+            </th>
+            <th>
+                Año de salida
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model) {
+            <tr class="danger">
+                <td>
+                    @item.FullName
+                </td>
+                <td>
+                    @item.NombreDepartamento
+                </td>
+                <td>
+                    @item.NombreCargo
+                </td>
+                <td>
+                    @item.FechaSalida.ToString("MMMM", CultureInfo.CreateSpecificCulture("Es-Es"))
+                </td>
+                <td>
+                    @item.FechaSalida.Year
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+<div>
+    <a href="@Url.Action("Index", "Informe")" class="btn btn-info">Regresar</a>
+    <a href="@Url.Action("Index", "Empleado")" class="btn btn-primary">Ver empleados Activos</a>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#tablaEmpleadosA thead tr').clone(true).appendTo('#tablaEmpleadosA thead');
+            $('#tablaEmpleadosA thead tr:eq(1) th').each(function (i) {
+                var title = $(this).text().trim().toLowerCase();
+                console.log(`Es es el titulo "${title}"`);
+                $(this).html('<input type="text" class="form-control" placeholder="Buscar ' + title + '" />');
+
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+
+            var table = $('#tablaEmpleadosA').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                responsive: true
+            });
+        });
+    </script>
+}
+
+
+
+

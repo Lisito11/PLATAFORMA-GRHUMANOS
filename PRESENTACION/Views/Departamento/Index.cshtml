@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ENTIDAD.Departamento>
+<div>
+    <h1>Departamentos</h1>
+</div>
+<table class="table table-striped table-hover table-bordered" id="tablaDepartamentos" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Código del departamento
+            </th>
+            <th>
+                Nombre del departamento
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodigoDepartamento)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreDepartamento)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a href="@Url.Action("Index", "Informe")" class="btn btn-info">Regresar</a>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#tablaDepartamentos thead tr').clone(true).appendTo('#tablaDepartamentos thead');
+            $('#tablaDepartamentos thead tr:eq(1) th').each(function (i) {
+                var title = $(this).text().trim().toLowerCase();
+                console.log(`Es es el titulo "${title}"`);
+                $(this).html('<input type="text" class="form-control" placeholder="Buscar ' + title + '" />');
+
+                $('input', this).on('keyup change', function () {
+                    if (table.column(i).search() !== this.value) {
+                        table
+                            .column(i)
+                            .search(this.value)
+                            .draw();
+                    }
+                });
+            });
+
+            var table = $('#tablaDepartamentos').DataTable({
+                orderCellsTop: true,
+                fixedHeader: true,
+                responsive: true
+            });
+
+        });
+    </script>
+}
